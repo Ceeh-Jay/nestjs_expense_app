@@ -1,4 +1,4 @@
-import {IsNumber, isNumber, IsPositive, IsString, IsNotEmpty
+import {IsNumber, isNumber, IsPositive, IsString, IsNotEmpty, IsOptional
 } from 'class-validator';
 
 
@@ -8,6 +8,18 @@ export class CreateReportDto {
     @IsPositive()
     amount: number;
 
+    @IsString()
+    @IsNotEmpty()
+    source: string;
+}
+
+export class UpdateReportDto {
+    @IsOptional()
+    @IsNumber()
+    @IsPositive()
+    amount: number;
+
+    @IsOptional()
     @IsString()
     @IsNotEmpty()
     source: string;
